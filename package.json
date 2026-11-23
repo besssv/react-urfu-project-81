@@ -21,6 +21,8 @@
     "format": "oxfmt"
   },
   "devDependencies": {
+    "@emnapi/core": "2.0.0-beta.2",
+    "@emnapi/runtime": "2.0.0-beta.2",
     "@types/node": "^26.6.6",
     "@vitest/coverage-v8": "^5.1.0",
     "oxfmt": "^0.79.0",
