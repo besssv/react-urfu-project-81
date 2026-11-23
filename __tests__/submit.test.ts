@@ -28,6 +28,6 @@ describe("FormBuilder.submit", () => {
 
   test("renders submit without fields", () => {
     const form = HexletCode.formFor(template, {}, (f) => f.submit());
-    expect(form).toBe('<form action="#" method="post"><input type="submit" value="Save"></form>');
+    expect(form).toBe('<form method="post" action="#"><input type="submit" value="Save"></form>');
   });
 });

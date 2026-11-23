@@ -2,10 +2,15 @@ import type { Attributes } from "./Tag.ts";
 
 export type Template = Record<string, unknown>;
 
+export interface Label {
+  text: string;
+  attributes: Attributes;
+}
+
 export interface InputField {
   type: "input";
   name: string;
-  label: string;
+  label: Label;
   value: string;
   attributes: Attributes;
 }
@@ -13,7 +18,7 @@ export interface InputField {
 export interface TextareaField {
   type: "textarea";
   name: string;
-  label: string;
+  label: Label;
   value: string;
   attributes: Attributes;
 }

@@ -19,7 +19,7 @@ const formFor = (
 
   callback(builder);
 
-  return renderHtml({ attributes: { action: url, method }, fields: builder.fields });
+  return renderHtml({ attributes: { method, action: url }, fields: builder.fields });
 };
 
 export default { formFor };

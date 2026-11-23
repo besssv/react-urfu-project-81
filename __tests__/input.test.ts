@@ -46,8 +46,24 @@ describe("FormBuilder.input", () => {
     ).toThrow("Field 'age' does not exist in the template.");
   });
 
+  test("sets label text and attributes", () => {
+    const form = HexletCode.formFor(template, {}, (f) => {
+      f.input("name", { label: "User", labelHtml: { class: "form-label", id: "name-label" } });
+      f.input("job", { as: "textarea", class: "big" });
+      f.submit("Ok");
+    });
+    expect(form).toBe(readFixture("form-label-options.html"));
+  });
+
+  test("renders empty value for null field", () => {
+    const form = HexletCode.formFor({ name: null }, {}, (f) => f.input("name"));
+    expect(form).toBe(
+      '<form method="post" action="#"><label for="name">Name</label><input name="name" type="text" value=""></form>',
+    );
+  });
+
   test("uses method option", () => {
     const form = HexletCode.formFor(template, { method: "get" }, () => {});
-    expect(form).toBe('<form action="#" method="get"></form>');
+    expect(form).toBe('<form method="get" action="#"></form>');
   });
 });

@@ -32,14 +32,14 @@ import HexletCode from "@hexlet/code";
 const template = { name: "rob", job: "hexlet", gender: "m" };
 
 const form = HexletCode.formFor(template, { url: "/users" }, (f) => {
-  f.input("name", { class: "user-input" });
+  f.input("name", { class: "user-input", label: "User", labelHtml: { class: "form-label" } });
   f.input("job", { as: "textarea", rows: 50, cols: 50 });
   f.submit("Wow");
 });
 
 console.log(form);
-// <form action="/users" method="post">
-//   <label for="name">Name</label>
+// <form method="post" action="/users">
+//   <label for="name" class="form-label">User</label>
 //   <input name="name" type="text" value="rob" class="user-input">
 //   <label for="job">Job</label>
 //   <textarea cols="50" rows="50" name="job">hexlet</textarea>
@@ -48,7 +48,7 @@ console.log(form);
 ```
 
 - `url` — адрес отправки формы (по умолчанию `#`), `method` — метод (по умолчанию `post`).
-- `f.input(name, options)` — добавляет поле со значением из шаблона и лейбл к нему. `as: "textarea"` делает многострочное поле (по умолчанию `cols="20" rows="40"`), остальные опции становятся атрибутами тега.
+- `f.input(name, options)` — добавляет поле со значением из шаблона и лейбл к нему. `as: "textarea"` делает многострочное поле (по умолчанию `cols="20" rows="40"`), `label` задаёт текст лейбла (по умолчанию — имя поля с заглавной буквы), `labelHtml` — атрибуты лейбла, остальные опции становятся атрибутами тега.
 - `f.submit(text)` — добавляет кнопку отправки, по умолчанию с текстом `Save`.
 - Если поля нет в шаблоне, выбрасывается ошибка `Field '<name>' does not exist in the template.`
 
