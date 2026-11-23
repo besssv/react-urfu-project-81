@@ -1,0 +1,23 @@
+[
+  { "name": "br", "attributes": {}, "body": "", "expected": "<br>" },
+  {
+    "name": "img",
+    "attributes": { "src": "path/to/image" },
+    "body": "",
+    "expected": "<img src=\"path/to/image\">"
+  },
+  {
+    "name": "input",
+    "attributes": { "type": "submit", "value": "Save" },
+    "body": "",
+    "expected": "<input type=\"submit\" value=\"Save\">"
+  },
+  { "name": "label", "attributes": {}, "body": "Email", "expected": "<label>Email</label>" },
+  {
+    "name": "label",
+    "attributes": { "for": "email" },
+    "body": "Email",
+    "expected": "<label for=\"email\">Email</label>"
+  },
+  { "name": "div", "attributes": {}, "body": "", "expected": "<div></div>" }
+]

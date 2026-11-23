@@ -1,28 +1,66 @@
 # Генератор форм на Typescript
 
 [![hexlet-check](https://github.com/besssv/react-urfu-project-81/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/besssv/react-urfu-project-81/actions)
+[![CI](https://github.com/besssv/react-urfu-project-81/actions/workflows/ci.yml/badge.svg)](https://github.com/besssv/react-urfu-project-81/actions/workflows/ci.yml)
 
 Библиотека, с помощью которой удобно создавать формы в шаблонах сайтов. Она заметно сокращает код описания формы за счет автоматической обработки ошибок и различных контролов.
 
 Учебный проект Хекслета: https://ru.hexlet.io/
 
-
 ## Стек
 
-- JavaScript
+- TypeScript
+- Vitest — тесты и покрытие
+- oxlint, oxfmt — линтер и форматтер
+- GitHub Actions — CI
 
 ## Установка
 
-<!-- Опишите установку: клонирование, зависимости, переменные окружения -->
+Требуется Node.js 24+.
 
 ```bash
 git clone https://github.com/besssv/react-urfu-project-81.git
 cd react-urfu-project-81
+make install
 ```
 
 ## Использование
 
-<!-- Добавьте примеры запуска и запись asciinema — именно это смотрит работодатель -->
+```ts
+import HexletCode from "@hexlet/code";
+
+const template = { name: "rob", job: "hexlet", gender: "m" };
+
+const form = HexletCode.formFor(template, { url: "/users" }, (f) => {
+  f.input("name", { class: "user-input" });
+  f.input("job", { as: "textarea", rows: 50, cols: 50 });
+  f.submit("Wow");
+});
+
+console.log(form);
+// <form action="/users" method="post">
+//   <label for="name">Name</label>
+//   <input name="name" type="text" value="rob" class="user-input">
+//   <label for="job">Job</label>
+//   <textarea cols="50" rows="50" name="job">hexlet</textarea>
+//   <input type="submit" value="Wow">
+// </form>
+```
+
+- `url` — адрес отправки формы (по умолчанию `#`), `method` — метод (по умолчанию `post`).
+- `f.input(name, options)` — добавляет поле со значением из шаблона и лейбл к нему. `as: "textarea"` делает многострочное поле (по умолчанию `cols="20" rows="40"`), остальные опции становятся атрибутами тега.
+- `f.submit(text)` — добавляет кнопку отправки, по умолчанию с текстом `Save`.
+- Если поля нет в шаблоне, выбрасывается ошибка `Field '<name>' does not exist in the template.`
+
+## Разработка
+
+```bash
+make lint
+make lint-fix
+make typecheck
+make test
+make test-coverage
+```
 
 ---
 

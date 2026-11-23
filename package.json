@@ -1,0 +1,31 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "[![hexlet-check](https://github.com/besssv/react-urfu-project-81/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/besssv/react-urfu-project-81/actions)",
+  "homepage": "https://github.com/besssv/react-urfu-project-81#readme",
+  "bugs": {
+    "url": "https://github.com/besssv/react-urfu-project-81/issues"
+  },
+  "license": "ISC",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/besssv/react-urfu-project-81.git"
+  },
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "oxlint && oxfmt --check",
+    "format": "oxfmt"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@vitest/coverage-v8": "^5.1.0",
+    "oxfmt": "^0.79.0",
+    "oxlint": "^1.94.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}
